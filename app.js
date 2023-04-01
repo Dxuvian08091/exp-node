@@ -51,7 +51,7 @@ const server = app.listen(process.env.PORT || 5000, () => {
 });
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://frabjous-pony-87c0bc.netlify.app",
+    origin: "*",
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   },
 });
