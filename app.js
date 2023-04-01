@@ -32,11 +32,6 @@ app.use(express.json());
 
 app.use("/video", express.static(path.join(__dirname, "video")));
 
-app.use((req, res, next) => {
-  sessionStorage.setItem("VITE_URL", process.env.VITE_URL);
-  return res.status(200).json(process.env.VITE_URL);
-});
-
 app.use((err, req, res, next) => {
   if (!(err instanceof Error)) {
     err = new Error(err);
@@ -56,7 +51,7 @@ const server = app.listen(process.env.PORT || 5000, () => {
 });
 const io = require("socket.io")(server, {
   cors: {
-    origin: process.env.VITE_URL,
+    origin: "https://frabjous-pony-87c0bc.netlify.app",
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   },
 });
