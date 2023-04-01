@@ -32,6 +32,10 @@ app.use(express.json());
 
 app.use("/video", express.static(path.join(__dirname, "video")));
 
+app.use((req, res, next) => {
+  res.status(200).json(process.env.VITE_URL);
+});
+
 app.use((err, req, res, next) => {
   if (!(err instanceof Error)) {
     err = new Error(err);
