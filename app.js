@@ -54,7 +54,10 @@ const io = require("socket.io")(server, {
     origin: "*",
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   },
+  transports: ["websocket"],
+  upgrade: false,
 });
+
 io.on("connection", (socket) => {
   console.log("Client Connected");
   socket.on("timeUpdate", (currentTime) => {
