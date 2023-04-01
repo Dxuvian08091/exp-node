@@ -51,7 +51,7 @@ const server = app.listen(process.env.PORT || 5000, () => {
 });
 const io = require("socket.io")(server, {
   cors: {
-    origin: process.env.URL,
+    origin: process.env.VITE_URL,
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   },
 });
